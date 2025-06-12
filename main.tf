@@ -36,9 +36,10 @@ module "alb" {
 
 
 
-module "ecs" {
+module "eks" {
   source                    = "./modules/ecs"
   eks_cluster_name          = var.eks_cluster_name
+  node_group_name           = var.node_group_name
   public_subnets            = [module.vpc.public_subnet_1, module.vpc.public_subnet_2]
   private_subnets           = [module.vpc.private_subnet_1, module.vpc.private_subnet_2]
 }
