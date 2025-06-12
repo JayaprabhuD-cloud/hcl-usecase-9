@@ -28,7 +28,7 @@ module "security_groups" {
 module "alb" {
   source = "./modules/alb"
   vpc_id = module.vpc.vpc_id
-  flask_app_tg              = var.flasktg
+  flasktg = var.flasktg
   alb_name                  = var.alb_name
   alb_sg                    = [module.security_groups.alb_sg]
   subnet_ids                = module.vpc.public_subnets
