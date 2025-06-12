@@ -25,6 +25,6 @@ variable "eks_worker_node_role_name" {
 }
 
 variable "subnet_ids" {
-  description = eks cluster subnets
+  description = "eks cluster subnets"
   type = list(string)
 }
