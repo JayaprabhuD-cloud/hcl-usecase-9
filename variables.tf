@@ -55,10 +55,10 @@ variable "eks_worker_node_role_name" {
   default = "eks_worker_node_role"
 }
 
-variable "flask_app_tg" {
+variable "flasktg" {
   description = "flask application target group name"
   type = string
-  default = "flask_app_tg"
+  default = "flasktg"
 }
 
 variable "eks_cluster_name" {
