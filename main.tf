@@ -19,11 +19,11 @@ module "security_groups" {
   vpc_id = module.vpc.vpc_id
 }
 
-module "iam" {
-  source = "./modules/iam"
-  eks_cluster_role_name = var.eks_cluster_role_name
-  eks_worker_node_role_name = var.eks_worker_node_role_name
-}
+#module "iam" {
+#  source = "./modules/iam"
+#  eks_cluster_role_name = var.eks_cluster_role_name
+#  eks_worker_node_role_name = var.eks_worker_node_role_name
+#}
 
 module "alb" {
   source = "./modules/alb"
@@ -36,8 +36,11 @@ module "alb" {
 
 module "eks" {
   source                    = "./modules/eks"
+  eks_cluster_role_name = var.eks_cluster_role_name
+  eks_worker_node_role_name = var.eks_worker_node_role_name
   eks_cluster_name          = var.eks_cluster_name
   node_group_name           = var.node_group_name
+  role_arn                  = module.eks.cluster_role_arn
 #  public_subnets            = [module.vpc.public_subnet_1, module.vpc.public_subnet_2]
 #  private_subnets           = [module.vpc.private_subnet_1, module.vpc.private_subnet_2]
 }
