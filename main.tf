@@ -19,23 +19,22 @@ module "security_groups" {
   vpc_id = module.vpc.vpc_id
 }
 
+module "iam" {
+  source = "./modules/iam"
+  eks_cluster_role_name = var.eks_cluster_role_name
+  eks_worker_node_role_name = var.eks_worker_node_role_name
+}
+
 module "alb" {
   source = "./modules/alb"
   vpc_id = module.vpc.vpc_id
-  tg_name_patient           = var.tg_name_patient
-  tg_name_appoinment        = var.tg_name_appoinment
+  flask_app_tg              = var.flask_app_tg
   alb_name                  = var.alb_name
   alb_sg                    = [module.security_groups.alb_sg]
   public_subnets = [module.vpc.public_subnet_1, module.vpc.public_subnet_2]
 }
 
-module "iam" {
-  source = "./modules/iam"
-  ecs-task-execution-role-name = var.ecs-task-execution-role-name
-  ecs_task_execution_role_policy_name = var.ecs_task_execution_role_policy_name
-  ecs_task_role = var.ecs_task_role
-  ecs_task_role_policy = var.ecs_task_role_policy
-}
+
 
 module "ecs" {
   source                    = "./modules/ecs"

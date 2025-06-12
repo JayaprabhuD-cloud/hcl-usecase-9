@@ -1,14 +1,12 @@
-variable "ecs-task-execution-role-name" {
+Variable "eks_cluster_role_name" {
+  description = "eks cluster role name"
   type = string
+  default = "eks_cluster_role"
 }
 
-variable "ecs_task_execution_role_policy_name" {
-  type = string
-}
-variable "ecs_task_role" {
-  type = string
-}
 
-variable "ecs_task_role_policy" {
+Variable "eks_worker_node_role_name" {
+  description = "eks worker node role name"
   type = string
+  default = "eks_worker_node_role"
 }

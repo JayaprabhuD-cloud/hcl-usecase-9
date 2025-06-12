@@ -9,21 +9,8 @@ output "alb_arn" {
 }
 
 output "target_group_arns" {
-  description = "ARNs of the target groups"
-  value = {
-    patient_service     = aws_lb_target_group.patient_tg.arn
-    appointment_service = aws_lb_target_group.appoinmrnt_tg.arn
-  }
-}
-
-output "patient_service_target_group_arn" {
-  description = "ARN of the patient service target group"
-  value       = aws_lb_target_group.patient_tg.arn
-}
-
-output "appointment_service_target_group_arn" {
-  description = "ARN of the appointment service target group"
-  value       = aws_lb_target_group.appoinmrnt_tg.arn
+  description = "Flask target groups"
+  value = aws_lb_target_group.flask_app_tg.arn
 }
 
 output "listener_arn" {

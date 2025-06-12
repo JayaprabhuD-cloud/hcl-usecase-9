@@ -1,19 +1,13 @@
-#
-#variable "alb_sg_name" {
-#  description = "Name of the ALB security group"
-#  type        = string
-#}
-
-variable "tg_name_patient" {
-  description = "Name of the target group for patient"
-  type        = string
+variable "flask_app_tg" {
+  description = "flask application target group name"
+  type = string
+  default = "flask_app_tg"
 }
 
-variable "tg_name_appoinment" {
-  description = "Name of the target group for appointment"
-  type        = string
+variable "vpc_id" {
+  description = "refering vpc"
+  type = string
 }
-
 
 variable "alb_name" {
   description = "Name of the Application Load Balancer"
@@ -28,9 +22,4 @@ variable "alb_sg" {
 variable "public_subnets" {
   description = "List of public subnet IDs"
   type        = list(string)
-}
-
-variable "vpc_id" {
-  description = "refering vpc"
-  type = string
 }
