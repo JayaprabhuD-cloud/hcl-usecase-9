@@ -35,7 +35,7 @@ module "alb" {
 }
 
 module "eks" {
-  source                    = "./modules/ecs"
+  source                    = "./modules/eks"
   eks_cluster_name          = var.eks_cluster_name
   node_group_name           = var.node_group_name
   public_subnets            = [module.vpc.public_subnet_1, module.vpc.public_subnet_2]
