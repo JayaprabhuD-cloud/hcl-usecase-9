@@ -19,7 +19,7 @@ variable "alb_sg" {
   type        = list(string)
 }
 
-variable "public_subnets" {
-  description = "List of public subnet IDs"
-  type        = list(string)
+variable "subnet_ids" {
+  description = "eks cluster subnets"
+  type = list(string)
 }

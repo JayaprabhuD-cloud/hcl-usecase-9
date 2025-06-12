@@ -31,7 +31,7 @@ module "alb" {
   flask_app_tg              = var.flask_app_tg
   alb_name                  = var.alb_name
   alb_sg                    = [module.security_groups.alb_sg]
-  public_subnets = [module.vpc.public_subnet_1, module.vpc.public_subnet_2]
+  subnet_ids                = module.vpc.public_subnets
 }
 
 module "eks" {
@@ -44,4 +44,5 @@ module "eks" {
 # public_subnets            = [module.vpc.public_subnet_1, module.vpc.public_subnet_2]
 # private_subnets           = [module.vpc.private_subnet_1, module.vpc.private_subnet_2]
   subnet_ids                = module.vpc.public_subnets
+  subnet_ids                = module.vpc.private_subnets
 }
