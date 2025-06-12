@@ -1,7 +1,7 @@
 # Creating target group for flask application
 
 resource "aws_lb_target_group" "flask_app_tg" {
-  name = var.flask_app_tg
+  name = var.flasktg
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
@@ -13,7 +13,7 @@ resource "aws_lb_target_group" "flask_app_tg" {
   }
 
   tags = {
-    Name = var.flask_app_tg
+    Name = var.flasktg
   }
 }
 
