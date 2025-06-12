@@ -1,7 +1,7 @@
 variable "flask_app_tg" {
   description = "flask application target group name"
   type = string
-  default = "flask_app_tg"
+  default = "flaskapp-tg"
 }
 
 variable "vpc_id" {
