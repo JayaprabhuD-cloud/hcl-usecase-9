@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: api-flask
-        image: <your-ecr-repo-url>:latest
+        image: 058264249757.dkr.ecr.ap-south-1.amazonaws.com/flask_application_repo:latest
         ports:
         - containerPort: 5000
