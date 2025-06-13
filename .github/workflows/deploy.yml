@@ -13,7 +13,7 @@ jobs:
       ECR_REPO: flask_application_repo
       AWS_REGION: ap-south-1
       CLUSTER_NAME: usecase9-batch5-eks-cluster
-      IMAGE_TAG: ${{ github.sha }}
+      IMAGE_TAG: latest
 
     steps:
       - name: Checkout code
