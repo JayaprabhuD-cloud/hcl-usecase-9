@@ -25,14 +25,14 @@ module "security_groups" {
 #  eks_worker_node_role_name = var.eks_worker_node_role_name
 #}
 
-module "alb" {
-  source = "./modules/alb"
-  vpc_id = module.vpc.vpc_id
-  flasktg = var.flasktg
-  alb_name                  = var.alb_name
-  alb_sg                    = [module.security_groups.alb_sg]
-  subnet_ids                = module.vpc.public_subnets
-}
+#module "alb" {
+#  source = "./modules/alb"
+#  vpc_id = module.vpc.vpc_id
+#  flasktg = var.flasktg
+#  alb_name                  = var.alb_name
+#  alb_sg                    = [module.security_groups.alb_sg]
+#  subnet_ids                = module.vpc.public_subnets
+#}
 
 module "eks" {
   source                    = "./modules/eks"

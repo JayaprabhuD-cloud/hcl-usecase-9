@@ -37,10 +37,10 @@ variable "app_sg_name" {
   type = string
 }
 
-variable "alb_name" {
-  description = "Name of the Application Load Balancer"
-  type        = string
-}
+#variable "alb_name" {
+#  description = "Name of the Application Load Balancer"
+#  type        = string
+#}
 
 variable "eks_cluster_role_name" {
   description = "eks cluster role name"
