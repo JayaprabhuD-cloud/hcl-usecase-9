@@ -26,25 +26,25 @@ jobs:
           role-session-name: github-assume
           aws-region: ap-south-1
 
-    - name: Login to Amazon ECR
-      run: |
-        aws ecr get-login-password --region ap-south-1 |         docker login --username AWS --password-stdin 058264249757.dkr.ecr.ap-south-1.amazonaws.com
+      - name: Login to Amazon ECR
+        run: |
+          aws ecr get-login-password --region ap-south-1 |           docker login --username AWS --password-stdin 058264249757.dkr.ecr.ap-south-1.amazonaws.com
 
-    - name: Build Docker image
-      run: |
-        docker build -t flask_application_repo:latest .
-        docker tag flask_application_repo:latest 058264249757.dkr.ecr.ap-south-1.amazonaws.com/flask_application_repo:latest
+      - name: Build Docker image
+        run: |
+          docker build -t flask_application_repo:latest .
+          docker tag flask_application_repo:latest 058264249757.dkr.ecr.ap-south-1.amazonaws.com/flask_application_repo:latest
 
-    - name: Push Docker image to ECR
-      run: |
-        docker push 058264249757.dkr.ecr.ap-south-1.amazonaws.com/flask_application_repo:latest
+      - name: Push Docker image to ECR
+        run: |
+          docker push 058264249757.dkr.ecr.ap-south-1.amazonaws.com/flask_application_repo:latest
 
-    - name: Update kubeconfig
-      run: |
-        aws eks update-kubeconfig --region ap-south-1 --name usecase9-batch5-eks-cluster
+      - name: Update kubeconfig
+        run: |
+          aws eks update-kubeconfig --region ap-south-1 --name usecase9-batch5-eks-cluster
 
-    - name: Deploy to EKS
-      run: |
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
-        kubectl apply -f k8s/ingress.yaml
+      - name: Deploy to EKS
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/ingress.yaml
